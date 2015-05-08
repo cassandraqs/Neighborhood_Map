@@ -7,7 +7,7 @@ var input,
 var viewModel = function() {
 	var self = this;
 	var markers = [];
-	var bounds = new google.maps.LatLngBounds();
+	
 	self.resultList = ko.observableArray([]);
 	var searchBox = new google.maps.places.SearchBox(input);
 	google.maps.event.addListener(searchBox, 'places_changed', function() {
@@ -20,6 +20,7 @@ var viewModel = function() {
 		if (places.length === 0) {
 			return;
 		}
+		var bounds = new google.maps.LatLngBounds();
 		for (var i = 0, place; place = places[i]; i++) {
 			self.resultList.push(new searchResults(place));
 
@@ -44,9 +45,9 @@ var viewModel = function() {
 			
 			bounds.extend(place.geometry.location);
 			var infowindow = new google.maps.InfoWindow();
-			google.maps.event.addListener(marker, 'click', function() {
+			google.maps.event.addListener(marker, 'mouseover', function() {
 				var info = places[this.index];
-				console.log(info);
+				//console.log(info);
 				infowindow.setContent(info.formatted_address);
 				infowindow.open(map, this);
 			});
