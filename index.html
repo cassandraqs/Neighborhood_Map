@@ -62,7 +62,7 @@
 	<div id="results">
    <h2>Results</h2> 
    <ul id="places" data-bind="foreach: resultList">
-     <li data-bind="text:name"></li>
+     <li data-bind="text:name, click: $parent.showAlert"></li>
    </ul>
   </div>
 </body>
