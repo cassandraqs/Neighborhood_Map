@@ -34,6 +34,8 @@
       h2 {
         font-size: 22px;
         margin: 0 0 5px 0;
+        text-align: center;
+        color: #086A87;
       }
       ul {
         list-style-type: none;
@@ -50,6 +52,25 @@
         white-space: nowrap;
         overflow: hidden;
       }
+      .rating {
+        float:left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        min-width: 10px;
+        padding: 3px 7px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        background-color: #0489B1;
+        border-radius: 10px;
+}
+      }
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoogleMap Test</title>	
@@ -64,8 +85,8 @@
 	<div id="results">
    <h2>Results</h2> 
    <ul id="places" data-bind="foreach: resultList">
-     <li data-bind="text:rating() + name(), click: $parent.showAlert"></li>
-
+    <span class="rating" data-bind="text:rating"></span>
+    <li data-bind="text: name, click: $parent.showAlert"></li>
    </ul>
   </div>
 </body>

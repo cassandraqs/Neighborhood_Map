@@ -113,7 +113,9 @@ var viewModel = function() {
   		google.maps.event.addListener(marker, 'click', function() {	
   			var address = placeClicked.location.formattedAddress.toString();
   			var name = placeClicked.name;
-  			var menuURL = placeClicked.menu.url;
+  			if (placeClicked.hasMenu) {
+  				var menuURL = placeClicked.menu.url;
+  			};
   			var contact = placeClicked.contact.formattedPhone;
   			var URL = placeClicked.url;
   			var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=200x110&location=' + address + '';	
@@ -128,7 +130,7 @@ var viewModel = function() {
 
 
 };
-
+// Initialize google map
 function initialize() {
 	var mapOptions = {
 		zoom: 10,
