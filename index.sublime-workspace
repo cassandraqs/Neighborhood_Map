@@ -1,0 +1,308 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lo",
+				"locationLo"
+			],
+			[
+				"loc",
+				"locationLa"
+			],
+			[
+				"map",
+				"mapCanvas"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"sear",
+				"searchResults"
+			],
+			[
+				"re",
+				"resultList"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"pla",
+				"placeItem"
+			],
+			[
+				"place",
+				"placeList"
+			],
+			[
+				"a",
+				"article"
+			],
+			[
+				"nyt",
+				"nytElem"
+			],
+			[
+				"cit",
+				"cityName"
+			],
+			[
+				"ny",
+				"nytimesURL"
+			],
+			[
+				"streetv",
+				"streetviewURL"
+			],
+			[
+				"street",
+				"streetName"
+			],
+			[
+				"stre",
+				"streetName"
+			],
+			[
+				"ci",
+				"cityName"
+			],
+			[
+				"str",
+				"streetName"
+			],
+			[
+				"window",
+				"windowwidth"
+			],
+			[
+				"pizza",
+				"pizzaElements"
+			],
+			[
+				"all",
+				"allPizzas"
+			],
+			[
+				"gen",
+				"generateMore"
+			],
+			[
+				"off",
+				"offsetWidth"
+			],
+			[
+				"scroll",
+				"scrollTop"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/cassandra/projects/web/udacity/projects/Neighborhood_Map/index.html",
+		"/Users/cassandra/projects/web/udacity/projects/Neighborhood_Map/js/app.js",
+		"/Users/cassandra/projects/web/gomoku/style.css",
+		"/Users/cassandra/projects/web/gomoku/gomoku.js",
+		"/Users/cassandra/projects/web/gomoku/index.html",
+		"/Users/cassandra/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cassandra/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cassandra/projects/web/udacity/projects/project2/index.html",
+		"/Users/cassandra/projects/web/udacity/projects/tests/tab_test/tabs.html",
+		"/Users/cassandra/projects/web/udacity/projects/tests/yelp-api/index.html",
+		"/Users/cassandra/projects/web/udacity/projects/tests/yelp-api/app.js",
+		"/Users/cassandra/projects/web/udacity/projects/tests/googleMap/map.html",
+		"/Users/cassandra/projects/web/udacity/projects/tests/googleMap/js/app.js",
+		"/Users/cassandra/Downloads/kingsman/Kingsman The Secret Service 2015 NEWSOURCE RUSS CAM XviD AC3 MURD3R.srt",
+		"/Users/cassandra/Library/Application Support/Sublime Text 3/Packages/JsFormat/Default (OSX).sublime-keymap",
+		"/Users/cassandra/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/cassandra/projects/web/udacity/projects/frontend-nanodegree-arcade-game/project3_arcadegame/js/app.js",
+		"/Users/cassandra/projects/web/udacity/projects/minicourse-ajax-project/index.html",
+		"/Users/cassandra/projects/web/udacity/projects/minicourse-ajax-project/js/script.js",
+		"/Users/cassandra/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/cassandra/projects/web/udacity/courses/AJAX/minicourse-ajax-project/js/script.js",
+		"/Users/cassandra/projects/web/udacity/courses/AJAX/minicourse-ajax-project/index.html",
+		"/Users/cassandra/projects/web/udacity/courses/AJAX/minicourse-ajax-project/css/style.css",
+		"/Users/cassandra/projects/web/udacity/projects/cassandraqs.github.io/views/js/main.js",
+		"/Users/cassandra/projects/web/udacity/projects/cassandraqs.github.io/index.html",
+		"/Users/cassandra/projects/web/udacity/projects/frontend-nanodegree-mobile-portfolio/js/perfmatters.js",
+		"/Users/cassandra/projects/web/udacity/projects/frontend-nanodegree-mobile-portfolio/index.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"}\n",
+			">{\n",
+			"oardCell",
+			"div",
+			"bound",
+			"format",
+			"randomPizzaContainer",
+			"ca che d",
+			"mover"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 105.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

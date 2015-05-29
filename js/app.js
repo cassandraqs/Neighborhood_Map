@@ -1,3 +1,4 @@
+// Model 
 var searchResults = function(placeItem) {
 	this.name = ko.observable(placeItem.name);
 	this.address = ko.observable(placeItem.formatted_address);
@@ -9,12 +10,18 @@ var input,
 var viewModel = function() {
 	var self = this;
 	var markers = [];
-
+	var markerClicked = [];
+// Create an observable array to store search results
 	self.resultList = ko.observableArray([]);
+// Create a search box and store user input in input(var)
 	var searchBox = new google.maps.places.SearchBox(input);
+	// Once user changes input and hit enter key, and there is response, call this function
 	google.maps.event.addListener(searchBox, 'places_changed', function() {
+		// Store places results in places
 		var places = searchBox.getPlaces();
+		// Empty results array for each search
 		self.resultList([]);
+		// Remove all markers from the map
 		for (var i = 0, marker; marker = markers[i]; i++) {
 			marker.setMap(null);
 		}
@@ -22,6 +29,7 @@ var viewModel = function() {
 		if (places.length === 0) {
 			return;
 		}
+		// Create markers for each place and set bounds accordingly
 		var bounds = new google.maps.LatLngBounds();
 		for (var i = 0, place; place = places[i]; i++) {
 			self.resultList.push(new searchResults(place));
@@ -46,11 +54,13 @@ var viewModel = function() {
 			markers.push(marker);
 
 			bounds.extend(place.geometry.location);
+			// When a marker is clicked, open an infowindow
 			var infowindow = new google.maps.InfoWindow();
-			google.maps.event.addListener(marker, 'mouseover', function() {
+			google.maps.event.addListener(marker, 'click', function() {
 				var info = places[this.index];
-				//console.log(info);
-				infowindow.setContent(info.formatted_address);
+				console.log(info);
+				console.log(info.geometry.location.A)
+				infowindow.setContent(info.name + " " + info.formatted_address);
 				infowindow.open(map, this);
 			});
 		}
@@ -60,11 +70,15 @@ var viewModel = function() {
 		var bounds = map.getBounds();
 		searchBox.setBounds(bounds);
 	});
-
+// When one of the listed results is clicked, drop the marker and open infowindow
 	self.showAlert = function(item) {
 		for (var i = 0, marker; marker = markers[i]; i++) {
 			marker.setMap(null);
 		}
+		for (var i = 0, marker; marker = markerClicked[i]; i++) {
+			marker.setMap(null);
+		}
+		markerClicked = [];
 
 		//console.log(item.position());
 		var marker = new google.maps.Marker({
@@ -74,14 +88,14 @@ var viewModel = function() {
 	    position: item.position(),
 	    title:item.name()
   		});
-		
+		markerClicked.push(marker);
   		var infowindowNow = new google.maps.InfoWindow();
   		google.maps.event.addListener(marker, 'click', function() {
-				//console.log(info);
+				
 				infowindowNow.setContent(item.address());
 				infowindowNow.open(map, this);
 			});
-  		
+
 
 	};
 
@@ -97,8 +111,6 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 	input = document.getElementById('pac-input');
 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-	// var div = document.getElementById('places');
-	// google.maps.event.addDomListener(div, 'click', showAlert);
 };
 
 google.maps.event.addDomListener(window, 'load', function() {
