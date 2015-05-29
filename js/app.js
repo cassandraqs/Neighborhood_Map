@@ -26,6 +26,10 @@ var viewModel = function() {
 		for (var i = 0, marker; marker = markers[i]; i++) {
 			marker.setMap(null);
 		}
+		for (var i = 0, marker; marker = markerClicked[i]; i++) {
+			marker.setMap(null);
+		}
+		markerClicked = [];
 		markers = [];
 		if (places.length === 0) {
 			return;
