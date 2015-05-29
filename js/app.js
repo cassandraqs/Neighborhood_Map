@@ -92,6 +92,9 @@ var viewModel = function() {
 	    title:item.name()
   		});
 		markerClicked.push(marker);
+		//Center map according to the marker
+		var latLng = marker.getPosition();
+		map.setCenter(latLng);
 		//Get json data from four sqaure API about this place
 		var La = item.position().A.toString();
 		var Lo = item.position().F.toString();
