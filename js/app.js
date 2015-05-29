@@ -3,6 +3,7 @@ var searchResults = function(placeItem) {
 	this.name = ko.observable(placeItem.name);
 	this.address = ko.observable(placeItem.formatted_address);
 	this.position = ko.observable(placeItem.geometry.location);
+	this.rating = ko.observable(placeItem.rating);
 };
 var input,
 	map;
@@ -65,6 +66,10 @@ var viewModel = function() {
 			});
 		}
 		map.fitBounds(bounds);
+		// Sort the result by rating
+		self.resultList.sort(function(left, right) {
+				return left.rating() == right.rating() ? 0 : (left.rating() > right.rating() ? -1 : 1)
+			});
 	});
 	google.maps.event.addListener(map, 'bounds_changed', function() {
 		var bounds = map.getBounds();
@@ -79,8 +84,6 @@ var viewModel = function() {
 			marker.setMap(null);
 		}
 		markerClicked = [];
-
-		//console.log(item.position());
 		var marker = new google.maps.Marker({
 	    map:map,
 	    draggable:true,
@@ -89,11 +92,35 @@ var viewModel = function() {
 	    title:item.name()
   		});
 		markerClicked.push(marker);
+		//Get json data from four sqaure API about this place
+		var La = item.position().A.toString();
+		var Lo = item.position().F.toString();
+		var name = item.name();
+		var placeClicked;
+		var URL = "https://api.foursquare.com/v2/venues/search?ll="+La+","
+			+Lo+"&query="+name+
+			"&client_id=YBBZOV3TPSJQNJILAFRH3KLUWL0KIAWALWWJQXKIBQPGBZJR&client_secret=JLUAGSEN5KINN04QMXEBKERM1HHPW4O3X1D3N4ZEKNRNS332&v=20150519";
+  		$.getJSON( URL, 
+			function(data) {
+				placeClicked = data.response.venues[0];
+				console.log(placeClicked);
+			}
+		).error(function(e) {
+			alert("Oops! We can't retrive data from FourSquare now. Please try again later!");
+		});
+		// Open infowindow based on foursquare data
   		var infowindowNow = new google.maps.InfoWindow();
-  		google.maps.event.addListener(marker, 'click', function() {
-				
-				infowindowNow.setContent(item.address());
-				infowindowNow.open(map, this);
+  		google.maps.event.addListener(marker, 'click', function() {	
+  			var address = placeClicked.location.formattedAddress.toString();
+  			var name = placeClicked.name;
+  			var menuURL = placeClicked.menu.url;
+  			var contact = placeClicked.contact.formattedPhone;
+  			var URL = placeClicked.url;
+  			var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=200x110&location=' + address + '';	
+  			var contentString = '<div>' + '<div>' + '<a href ="' + URL + '" target="_blank" >' + name + '</a>' + '</div>' + '<div class="venueContact"><span class="icon-phone"></span>' + contact 
+  			+ '<a href ="' + menuURL + '" target="_blank" > See menu </a>' + '</div>' + '<div>' + address + '</div>' +'<img class="bgimg" src="' + streetviewUrl + '">' + '</div>';		
+			infowindowNow.setContent(contentString);
+			infowindowNow.open(map, this);
 			});
 
 
@@ -104,8 +131,8 @@ var viewModel = function() {
 
 function initialize() {
 	var mapOptions = {
-		zoom: 8,
-		center: new google.maps.LatLng(-34.397, 150.644)
+		zoom: 10,
+		center: new google.maps.LatLng(40.7127, -74.0059)
 	};
 	var markers = [];
 	map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
