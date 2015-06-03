@@ -14,13 +14,17 @@ var viewModel = function() {
 	var markerClicked = [];
 // Create an observable array to store search results
 	self.resultList = ko.observableArray([]);
-	self.listDisplay = ko.observable('true');
+	self.listDisplay = ko.observable('true');	
 // Create a search box and store user input in input(var)
 	var searchBox = new google.maps.places.SearchBox(input);
 	// Once user changes input and hit enter key, and there is response, call this function
-	google.maps.event.addListener(searchBox, 'places_changed', function() {
+	google.maps.event.addListener(searchBox, 'places_changed', function() {	
 		// Store places results in places
 		var places = searchBox.getPlaces();
+		if (places.length === 0) {
+			alert("No results found!");
+	      return;
+	    }
 		// Empty results array for each search
 		self.resultList([]);
 		// Remove all markers from the map
@@ -64,8 +68,6 @@ var viewModel = function() {
 			var infowindow = new google.maps.InfoWindow();
 			google.maps.event.addListener(marker, 'click', function() {
 				var info = places[this.index];
-				console.log(info);
-				console.log(info.geometry.location.A)
 				infowindow.setContent(info.name + " " + info.formatted_address);
 				infowindow.open(map, this);
 			});
@@ -73,7 +75,7 @@ var viewModel = function() {
 		map.fitBounds(bounds);
 		// Sort the result by rating
 		self.resultList.sort(function(left, right) {
-				return left.rating() == right.rating() ? 0 : (left.rating() > right.rating() ? -1 : 1)
+				return left.rating() == right.rating() ? 0 : (left.rating() > right.rating() ? -1 : 1);
 			});
 	});
 	google.maps.event.addListener(map, 'bounds_changed', function() {
@@ -111,7 +113,6 @@ var viewModel = function() {
   		$.getJSON( URL, 
 			function(data) {
 				placeClicked = data.response.venues[0];
-				console.log(placeClicked);
 			}
 		).error(function(e) {
 			alert("Oops! We can't retrive data from FourSquare now. Please try again later!");
@@ -123,7 +124,7 @@ var viewModel = function() {
   			var name = placeClicked.name;
   			if (placeClicked.hasMenu) {
   				var menuURL = placeClicked.menu.url;
-  			};
+  			}
   			var contact = placeClicked.contact.formattedPhone;
   			var URL = placeClicked.url;
   			var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=200x110&location=' + address + '';	
@@ -135,13 +136,10 @@ var viewModel = function() {
   		if($('#display_list').css('display')!="none"){
 		    self.mobileDisplay();
 		}
-
 	};
 	self.mobileDisplay = function() {
 		self.listDisplay(!self.listDisplay());
 	};
-
-
 };
 // Initialize google map
 function initialize() {
@@ -154,9 +152,12 @@ function initialize() {
 	$('#map-canvas').height($(window).height());
 	input = document.getElementById('pac-input');
 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-};
-
-google.maps.event.addDomListener(window, 'load', function() {
+}
+if(typeof google != "undefined") {
+	google.maps.event.addDomListener(window, 'load', function() {
 	initialize();
 	ko.applyBindings(new viewModel());
-});
+	});
+} else {
+	window.alert("Cannot connect to Google API now, please try again later!");
+}
