@@ -14,6 +14,7 @@ var viewModel = function() {
 	var markerClicked = [];
 // Create an observable array to store search results
 	self.resultList = ko.observableArray([]);
+	self.listDisplay = ko.observable('true');
 // Create a search box and store user input in input(var)
 	var searchBox = new google.maps.places.SearchBox(input);
 	// Once user changes input and hit enter key, and there is response, call this function
@@ -130,9 +131,14 @@ var viewModel = function() {
   			+ '<a href ="' + menuURL + '" target="_blank" > See menu </a>' + '</div>' + '<div>' + address + '</div>' +'<img class="bgimg" src="' + streetviewUrl + '">' + '</div>';		
 			infowindowNow.setContent(contentString);
 			infowindowNow.open(map, this);
-			});
+		});
+  		if($('#display_list').css('display')!="none"){
+		    self.mobileDisplay();
+		}
 
-
+	};
+	self.mobileDisplay = function() {
+		self.listDisplay(!self.listDisplay());
 	};
 
 
@@ -145,6 +151,7 @@ function initialize() {
 	};
 	var markers = [];
 	map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+	$('#map-canvas').height($(window).height());
 	input = document.getElementById('pac-input');
 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 };
