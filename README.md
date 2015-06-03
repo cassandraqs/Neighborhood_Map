@@ -9,3 +9,5 @@ The search box is autocomplete enabled. Then hit enter.
 * Your results will be listed in the Results box based on their rating. A marker for each result place will appear on the map and upon click, an infowindow will show up.
 * Each result in the box is also clickable. The marker will be dropped and an info window with more details will show up when you click the marker.
 * If you want to start a new search, simply re-enter things in the search box and hit enter.
+### For mobile users:
+* There is a button on lower right corner of the screen, just below results box. Clicking the button will render the results box hidden. Click again to make it show up.
