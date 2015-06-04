@@ -1,0 +1,99 @@
+html, body, #mapCanvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 320px;
+      }
+      .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+      #results {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        right: 5px;
+        top: 60%;
+        margin-top: -195px;
+        height: 380px;
+        width: 200px;
+        padding: 5px;
+        z-index: 1;
+        border: 1px solid #999;
+        background: #fff;
+      }
+      p {
+        font-size: 22px;
+        margin: 0 0 5px 0;
+        text-align: center;
+        color: #086a87;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 321px;
+        width: 200px;
+        overflow-y: scroll;
+      }
+      li {
+        background-color: #f1f1f1;
+        padding: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .rating {
+        float:left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        min-width: 10px;
+        padding: 3px 7px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        background-color: #0489b1;
+        border-radius: 10px;
+      }
+      #display_list{
+        display:none;
+      }
+      @media only screen and (max-width : 760px) {
+        #display_list{
+        display:block;
+        position: absolute;
+        top: 90%;
+        z-index: 2;
+        left: 90%;
+        background-color: white;
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        box-shadow: 1px 1px 1px grey;
+        }
+        .media {
+          font-size: 15px;
+          margin: 0;
+        }
+      }
+  
