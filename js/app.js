@@ -1,4 +1,4 @@
-// Model 
+// Model
 var searchResults = function(placeItem) {
 	this.name = ko.observable(placeItem.name);
 	this.address = ko.observable(placeItem.formatted_address);
@@ -14,11 +14,11 @@ var viewModel = function() {
 	var markerClicked = [];
 // Create an observable array to store search results
 	self.resultList = ko.observableArray([]);
-	self.listDisplay = ko.observable('true');	
+	self.listDisplay = ko.observable('true');
 // Create a search box and store user input in input(var)
 	var searchBox = new google.maps.places.SearchBox(input);
 	// Once user changes input and hit enter key, and there is response, call this function
-	google.maps.event.addListener(searchBox, 'places_changed', function() {	
+	google.maps.event.addListener(searchBox, 'places_changed', function() {
 		// Store places results in places
 		var places = searchBox.getPlaces();
 		if (places.length === 0) {
@@ -110,7 +110,7 @@ var viewModel = function() {
 		var URL = "https://api.foursquare.com/v2/venues/search?ll="+La+","
 			+Lo+"&query="+name+
 			"&client_id=YBBZOV3TPSJQNJILAFRH3KLUWL0KIAWALWWJQXKIBQPGBZJR&client_secret=JLUAGSEN5KINN04QMXEBKERM1HHPW4O3X1D3N4ZEKNRNS332&v=20150519";
-  		$.getJSON( URL, 
+  		$.getJSON( URL,
 			function(data) {
 				placeClicked = data.response.venues[0];
 			}
@@ -119,7 +119,7 @@ var viewModel = function() {
 		});
 		// Open infowindow based on foursquare data
   		var infowindowNow = new google.maps.InfoWindow();
-  		google.maps.event.addListener(marker, 'click', function() {	
+  		google.maps.event.addListener(marker, 'click', function() {
   			var address = placeClicked.location.formattedAddress.toString();
   			var name = placeClicked.name;
   			if (placeClicked.hasMenu) {
@@ -127,9 +127,9 @@ var viewModel = function() {
   			}
   			var contact = placeClicked.contact.formattedPhone;
   			var URL = placeClicked.url;
-  			var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=200x110&location=' + address + '';	
-  			var contentString = '<div>' + '<div>' + '<a href ="' + URL + '" target="_blank" >' + name + '</a>' + '</div>' + '<div class="venueContact"><span class="icon-phone"></span>' + contact 
-  			+ '<a href ="' + menuURL + '" target="_blank" > See menu </a>' + '</div>' + '<div>' + address + '</div>' +'<img class="bgimg" src="' + streetviewUrl + '">' + '</div>';		
+  			var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=200x110&location=' + address + '';
+  			var contentString = '<div>' + '<div>' + '<a href ="' + URL + '" target="_blank" >' + name + '</a>' + '</div>' + '<div class="venueContact"><span class="icon-phone"></span>' + contact
+  			+ '<a href ="' + menuURL + '" target="_blank" > See menu </a>' + '</div>' + '<div>' + address + '</div>' +'<img class="bgimg" src="' + streetviewUrl + '">' + '</div>';
 			infowindowNow.setContent(contentString);
 			infowindowNow.open(map, this);
 		});
