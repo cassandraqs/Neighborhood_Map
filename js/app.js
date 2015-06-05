@@ -7,7 +7,7 @@ var searchResults = function(placeItem) {
 };
 var input,
 	map;
-
+Offline.options = {checks: {image: {url: 'http://104.236.90.198:16384/img/body.png'}, active: 'image'}};
 var viewModel = function() {
 	var self = this;
 	var markers = [];
@@ -24,7 +24,7 @@ var viewModel = function() {
 		if (places.length === 0) {
 			// Use offline.js to check if internet connection is lost
 			Offline.check();
-	      return;
+	        return;
 	    }
 		// Empty results array for each search
 		self.resultList([]);
