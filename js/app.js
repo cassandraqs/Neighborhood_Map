@@ -22,7 +22,7 @@ var viewModel = function() {
 		// Store places results in places
 		var places = searchBox.getPlaces();
 		if (places.length === 0) {
-			alert("No results found!");
+			Offline.check();
 	      return;
 	    }
 		// Empty results array for each search
