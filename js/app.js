@@ -22,6 +22,7 @@ var viewModel = function() {
 		// Store places results in places
 		var places = searchBox.getPlaces();
 		if (places.length === 0) {
+			// Use offline.js to check if internet connection is lost
 			Offline.check();
 	      return;
 	    }
